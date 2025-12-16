@@ -2,12 +2,17 @@
 
 from os import chdir, listdir
 
-chdir('../APUSH study')
+chdir('APUSH study')
 
 for file in listdir():
-    split = file.split()
+    split = file.split('.')
     if split[len(split) - 1] == 'html':
-        with open(file, 'rw') as content:
-            if 'article-theme-js' not in content.read():
-                modified = content.read().replace('</head>', '<script src="./article-theme-js/theme.js" defer></script>\n</head>')
-                file.write(modified)
+        with open(file, 'r') as content:
+            text = content.read()
+            if 'article-theme-js' not in text:
+                modified = text.replace('</title>', f'</title>\n    <script src="article-theme-js/theme.js" defer></script>')
+                print(f'Added script to "{file}"')
+            else:
+                modified = text
+        with open(file, 'w') as f:
+            f.write(modified)
