@@ -5,3 +5,5 @@ Wish me luck
 I will post the grade i get here after i take it.
 
 :))))
+
+OK i got my grade back and I got a 97%%%%%%%%%%%%%%
